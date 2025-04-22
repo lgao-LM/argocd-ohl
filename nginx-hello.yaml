@@ -51,6 +51,7 @@ spec:
       labels:
         app: nginx
     spec:
+      replicas: 2
       containers:
       - image: nginx:latest
         name: nginx
