@@ -41,6 +41,7 @@ metadata:
   name: nginx
   namespace: hello-nginx
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -51,7 +52,6 @@ spec:
       labels:
         app: nginx
     spec:
-      replicas: 2
       containers:
       - image: nginx:latest
         name: nginx
