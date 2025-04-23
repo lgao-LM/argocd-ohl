@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: hello-world-test
+  name: hello-world-test01
 spec:
   # invoke the print-message template with "hello world" as the argument to the message parameter
   entrypoint: print-message
