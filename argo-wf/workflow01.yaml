@@ -20,3 +20,15 @@ spec:
       image: busybox
       command: [echo]
       args: ["{{inputs.parameters.message}}"]
+  
+  podGC:
+    # Pod GC strategy must be one of the following:
+    # * OnPodCompletion - delete pods immediately when pod is completed (including errors/failures)
+    # * OnPodSuccess - delete pods immediately when pod is successful
+    # * OnWorkflowCompletion - delete pods when workflow is completed
+    # * OnWorkflowSuccess - delete pods when workflow is successful
+    # Default: do not delete pods
+    strategy: OnPodSuccess
+    # The duration before pods in the GC queue get deleted. Defaults to 5s
+    # Requires Argo >= 3.5
+    deleteDelayDuration: 30s
