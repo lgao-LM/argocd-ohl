@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  Name: steps-test-hello
+  name: steps-test-hello
   namespace: argo
 spec:
   entrypoint: hello-hello-hello
