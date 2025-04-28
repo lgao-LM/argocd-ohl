@@ -1,0 +1,25 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: vault-backend
+  namespace: argo
+spec:
+  provider:
+    vault:
+      server: "https://vault.factory.adeo.cloud"
+      namespace: "frlm/lgao-test"
+      path: "secret"
+      version: "v2"
+      auth:
+        # VaultAppRole authenticates with Vault using the
+        # App Role auth mechanism
+        # https://www.vaultproject.io/docs/auth/approle
+        appRole:
+          # Path where the App Role authentication backend is mounted
+          path: "approle"
+          # RoleID configured in the App Role authentication backend
+          roleId: "b08b31f2-e7d7-b355-1347-5d7fe71e4fdd"
+          # Reference to a key in a K8 Secret that contains the App Role SecretId
+          secretRef:
+            name: "vault-secret-id"
+            key: "secret-id"
