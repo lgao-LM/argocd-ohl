@@ -9,7 +9,7 @@ spec:
   arguments:
     parameters:
     - name: message
-      value: hello altitude eee
+      value: hello altitude adam
 
   templates:
   - name: print-message
